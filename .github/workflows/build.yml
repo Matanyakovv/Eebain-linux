@@ -20,6 +20,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ebain-linux-0.5-iso
-          path: '*.iso'
+          path: 'ebain-build/*.iso'
           if-no-files-found: error
           retention-days: 3
