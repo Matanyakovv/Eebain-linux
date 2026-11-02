@@ -1,0 +1,8 @@
+PRETTY_NAME="Ebain Linux 0.5"
+NAME="Ebain Linux"
+VERSION_ID="0.5"
+VERSION="0.5"
+ID=debian
+ID_LIKE=debian
+VERSION_CODENAME=trixie
+HOME_URL="https://www.debian.org/"
