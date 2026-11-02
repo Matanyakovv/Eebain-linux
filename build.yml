@@ -1,0 +1,25 @@
+name: Build Ebain ISO
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build in Debian 13 container
+        run: |
+          docker run --privileged --rm -v "$PWD:/work" -w /work debian:trixie bash -euxc '
+            apt-get update
+            DEBIAN_FRONTEND=noninteractive apt-get install -y live-build ca-certificates
+            bash build.sh
+          '
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: ebain-linux-0.5-iso
+          path: '*.iso'
+          if-no-files-found: error
+          retention-days: 3
