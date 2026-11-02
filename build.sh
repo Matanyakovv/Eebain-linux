@@ -3,8 +3,8 @@ set -euo pipefail
 
 echo "Building Ebain Linux 0.5"
 
-sudo apt-get update
-sudo apt-get install -y live-build
+ apt-get update
+ apt-get install -y live-build
 
 mkdir -p ebain-build
 cd ebain-build
@@ -42,6 +42,6 @@ VERSION_CODENAME=trixie
 HOME_URL="https://www.debian.org/"
 EOF
 
-sudo lb build
+ lb build
 
 echo "Ebain ISO build finished"
